@@ -1,5 +1,5 @@
-﻿using System.Configuration;
-using System.Data;
+﻿
+using DesktopApp.ViewModels;
 using System.Windows;
 
 namespace DesktopApp
@@ -9,6 +9,10 @@ namespace DesktopApp
     /// </summary>
     public partial class App : Application
     {
+        public string AccessToken { get; set; } = string.Empty;
+        public string UserEmail { get; set; } = string.Empty;
+        public string UserRole { get; set; }    = string.Empty ;
+        public BasketVM Basket { get; } = new BasketVM();
     }
 
 }

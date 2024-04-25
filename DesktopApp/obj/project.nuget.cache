@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "6Ras36P3wjfdbhOA/IEmWwKJ0o51BHThprsci0/sVIMk8GHbFOte8qujb3uiof3D/A5DSrijAVVc5VuIiOumow==",
+  "dgSpecHash": "Ki8ST/mLGw6aO00I1kzWXMiffgwMI0zaSidtl9O73/IVgjrtbi31JUoWuTcs/RKoKGYVNwpYxwbiZS2HFI5IAA==",
   "success": true,
   "projectFilePath": "C:\\Users\\golba\\Desktop\\62413-AOOP-C--F24\\DesktopApp\\DesktopApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\golba\\.nuget\\packages\\materialdesigncolors\\2.1.0\\materialdesigncolors.2.1.0.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\materialdesignthemes\\4.7.0\\materialdesignthemes.4.7.0.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\microsoft.aspnet.webapi.client\\6.0.0\\microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\prism.core\\8.1.97\\prism.core.8.1.97.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\golba\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
   "logs": []
 }

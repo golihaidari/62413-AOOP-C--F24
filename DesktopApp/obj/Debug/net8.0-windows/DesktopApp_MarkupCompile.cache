@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\golba\Desktop\62413-AOOP-C--F24\DesktopApp\App.xaml
-11407045341
+8-1001863374
 
-4-933454625
-1981451641563
-MainWindow.xaml;
+241191829196
+2051003045625
+View\HomeWindow.xaml;View\MainPages\Basket_Page.xaml;View\MainPages\Order_Page.xaml;View\MainPages\Products_Page.xaml;View\MainPages\Profile_Page.xaml;View\WelcomePages\Login_Page.xaml;View\WelcomePages\Register_Page.xaml;View\WelcomeWindow.xaml;
 
-True
+False
 
