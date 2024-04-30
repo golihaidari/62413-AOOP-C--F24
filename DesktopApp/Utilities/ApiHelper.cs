@@ -25,21 +25,31 @@ namespace DesktopApp
             {
                 request.Content = new StringContent(jsonPayload!, Encoding.UTF8, "application/json");
             }
-           
-            // Send request
-            var response = await client.SendAsync(request);
-            //response.EnsureSuccessStatusCode();
 
-            // Process response
-            if (response.IsSuccessStatusCode)
+            string msg= string.Empty;
+            try
             {
-                string responseBody = await response.Content.ReadAsStringAsync();
-                return responseBody;
+
+                // Send request
+                var response = await client.SendAsync(request);
+                //response.EnsureSuccessStatusCode();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    msg = await response.Content.ReadAsStringAsync();                    
+                }
+                else
+                {
+                    msg= $"Request failed with status code {response.StatusCode}";
+                }
+
             }
-            else
+            catch(Exception ex)
             {
-                return $"Request failed with status code {response.StatusCode}";
+                MessageBox.Show( ex.Message, "Error occored");
             }
+
+            return msg;
         }
         
         private static string GetToken()

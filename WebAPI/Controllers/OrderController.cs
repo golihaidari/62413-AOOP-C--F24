@@ -1,14 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using WebAPI.Dtos;
 using WebAPI.Models;
 using WebAPI.Repositories;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using WebAPI.Security;
 using WebAPI.Utilities;
 
@@ -18,7 +14,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController(IRepository<Order> repository, IJwtService jwtService) : ControllerBase
+    public class OrderController(IRepository<Order> repository) : ControllerBase
     {
         // GET: api/<OrderController>
         [HttpGet]
@@ -70,14 +66,7 @@ namespace WebAPI.Controllers
         [HttpPost]
         [Authorize(Roles ="Customer")]
         public async Task<ActionResult<string>> Register([FromBody] OrderDto orderDto)
-        {
-            var userEmail = jwtService.GetEmailFromToken(User);
-            var userRole = jwtService.GetRoleFromToken(User);
-            if (userRole != Roles.Customer.ToString() && userEmail != orderDto.CustomerEmail)
-            {
-                return BadRequest("Access denied!");
-            }
-
+        {          
             if (orderDto.OrderDetails.Count == 0)
             {
                 return BadRequest("ProductDetails is required to register the order!");

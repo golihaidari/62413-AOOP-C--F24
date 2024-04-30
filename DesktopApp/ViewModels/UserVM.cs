@@ -50,7 +50,7 @@ namespace DesktopApp.ViewModels
         {
             if (!ValidateInputs())
             {
-                MessageBox.Show("Please enter a valid email and password.");
+                MessageBox.Show("Please enter a valid email and password.\n valid Emaii= example@example.com\nvalid password= at leat 12 character including: an uppercase letter + a lowecase letter + and a special letter #.");
             }
             else
             {
@@ -62,7 +62,7 @@ namespace DesktopApp.ViewModels
                 else
                 {
                     string apiURL = "https://localhost:7257/api/";
-                    string payload = user.toString(); //$"{{\"Email\": \"{User.Email}\",\"Password\": \"{User.Password}\"}}";
+                    string payload = user.toString(); 
                     string response = await ApiHelper.SendRequest(apiURL, HttpMethod.Post, "Users", payload);
                     MessageBox.Show(response);
 
@@ -85,7 +85,7 @@ namespace DesktopApp.ViewModels
             else
             {
                 string apiURL = "https://localhost:7257/api/";
-                string payload = user.toString();//$"{{\"Email\": \"{User.Email}\",\"Password\": \"{User.Password}\"}}";
+                string payload = user.toString();
 
                 var response = await ApiHelper.SendRequest(apiURL, HttpMethod.Post, "login", payload);
                 try

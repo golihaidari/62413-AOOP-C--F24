@@ -10,6 +10,26 @@ namespace DesktopApp.ViewModels
     public class ProductVM : INotifyPropertyChanged
     {
         private ObservableCollection<Product?> products = [];
+        public ObservableCollection<Product?> Products
+        {
+            get => products;
+            set
+            {
+                if (value != null)
+                {
+                    products = value;
+                    OnPropertyChanged(nameof(Products));
+                }
+            }
+        }
+
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public ProductVM()
         {
@@ -31,7 +51,7 @@ namespace DesktopApp.ViewModels
                 }
                 else
                 {
-                    MessageBox.Show(response);
+                    MessageBox.Show("Unable to load products!!", "Error");
                 }                 
             }
             catch (Exception ex)
@@ -65,28 +85,7 @@ namespace DesktopApp.ViewModels
                     MessageBox.Show($"{ex.Message}");
                 }
             }                    
-        }
-
-        public ObservableCollection<Product?> Products
-        {
-            get => products;
-            set
-            {
-                if (value != null)
-                {
-                    products = value;
-                    OnPropertyChanged(nameof(Products));
-                }
-            }
-        }
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        }        
         
     }
 

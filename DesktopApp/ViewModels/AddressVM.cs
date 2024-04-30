@@ -1,5 +1,4 @@
 ﻿using DesktopApp.Models;
-using DesktopApp.View.MainPages;
 using Newtonsoft.Json;
 using Prism.Commands;
 using System.ComponentModel;
@@ -13,19 +12,6 @@ namespace DesktopApp.ViewModels
     {
 
         private Address? address = new();
-
-        public ICommand SaveCommand { get; }
-        public ICommand DeleteCommand { get; }
-
-        public AddressVM()
-        {
-            SaveCommand = new DelegateCommand(Update);
-            DeleteCommand = new DelegateCommand(Delete);
-
-            _ =  LoadAddress();
-        }
-
-
         public Address? Address
         {
             get => address;
@@ -37,6 +23,17 @@ namespace DesktopApp.ViewModels
                     OnPropertyChanged(nameof(Address));
                 }
             }
+        }
+
+        public ICommand SaveCommand { get; }
+        public ICommand DeleteCommand { get; }
+
+        public AddressVM()
+        {
+            SaveCommand = new DelegateCommand(Update);
+            DeleteCommand = new DelegateCommand(Delete);
+
+            _ =  LoadAddress();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -88,7 +85,7 @@ namespace DesktopApp.ViewModels
         {
             if (!ValidateInputs())
             {
-                MessageBox.Show("All fields are required!!");
+                MessageBox.Show("All fields are required!!", "Error");
             }
             else
             {
@@ -128,7 +125,7 @@ namespace DesktopApp.ViewModels
             string apiURL = "https://localhost:7257/api/";            
             try
             {
-                MessageBoxResult result = MessageBox.Show("Do you want to proceed?", "Confirmation", MessageBoxButton.OKCancel);
+                MessageBoxResult result = MessageBox.Show("Do you want to DELETE your account?", "Confirmation", MessageBoxButton.OKCancel);
 
                 if (result == MessageBoxResult.OK)
                 {

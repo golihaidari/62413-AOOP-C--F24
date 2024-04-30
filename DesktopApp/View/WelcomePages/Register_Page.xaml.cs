@@ -1,7 +1,6 @@
 ﻿using DesktopApp.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 
 namespace DesktopApp.View.WelcomePages
 {
@@ -24,8 +23,7 @@ namespace DesktopApp.View.WelcomePages
 
         private void exitApp(object sender, RoutedEventArgs e)
         {
-            var wnd = Window.GetWindow(this);
-            wnd.Close();
+            Application.Current.Shutdown();
         }
 
         private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)

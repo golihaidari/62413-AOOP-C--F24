@@ -13,8 +13,7 @@ namespace DesktopApp
         {
             InitializeComponent();           
             DataContext = new UserVM();
-            Main_frame.Content = new Products_Page();
-            //Main_frame.Navigate(new Products_Page());
+            Main_frame.Navigate(new Products_Page());
         }
 
         private void BtnOpenMenu_Click(object sender, RoutedEventArgs e)

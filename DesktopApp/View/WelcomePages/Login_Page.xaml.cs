@@ -16,14 +16,10 @@ namespace DesktopApp.View.WelcomePages
         }
 
    
-
-        private void toggleTheme(object sender, RoutedEventArgs e) { }
-
         private void navigateToSignUp_click(object sender, RoutedEventArgs e)
         {
-            var grid = (Grid) Window.GetWindow(this).Content;
-            Frame frame = (Frame)grid.Children[0];
-            frame.Content = new Register_Page();
+            var frame = (Frame)Application.Current.MainWindow.FindName("Index_frame");
+            frame.Navigate(new Register_Page());
         }       
 
         private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
@@ -39,8 +35,7 @@ namespace DesktopApp.View.WelcomePages
 
         private void ExitApp(object sender, RoutedEventArgs e)
         {
-            var wnd = Window.GetWindow(this);
-            wnd.Close();
+            Application.Current.Shutdown();
         }
     }
 }

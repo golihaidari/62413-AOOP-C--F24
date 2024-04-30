@@ -4,7 +4,6 @@ using Prism.Mvvm;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
-using System.Net;
 using System.Windows;
 using System.Windows.Input;
 using Newtonsoft.Json;
@@ -116,7 +115,7 @@ namespace DesktopApp.ViewModels
             await aVM.LoadAddress();
             if (string.IsNullOrEmpty( aVM.Address!.FirstName))
             {
-                MessageBox.Show("To make an order, address information is required.\n Please complete your profile first");
+                MessageBox.Show("Fill out  the profile form first!!!\nTo make an order, address information is required.");
                 var frame = (Frame)Application.Current.MainWindow.FindName("Main_frame");
                 frame.Navigate(new Profile_Page());
             }
@@ -125,7 +124,7 @@ namespace DesktopApp.ViewModels
 
                 if (BasketItems.Count <= 0)
                 {
-                    MessageBox.Show("Your basket is empty, please select your products."); ;
+                    MessageBox.Show("Basket is empty!!!\nSelect products first.", "Error"); ;
                 }
                 else
                 {

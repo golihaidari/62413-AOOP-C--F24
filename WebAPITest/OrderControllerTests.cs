@@ -1,15 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using WebAPI.Controllers;
 using WebAPI.Dtos;
 using WebAPI.Models;
 using WebAPI.Repositories;
-using WebAPI.Security;
 using WebAPI.Utilities;
 
 namespace WebAPITest
@@ -19,14 +13,12 @@ namespace WebAPITest
     {
         private OrderController _orderController;
         private Mock<IRepository<Order>> _mockRepository;
-        private Mock<IJwtService> _mockJwtService;
 
         [SetUp]
         public void Setup()
         {
             _mockRepository = new Mock<IRepository<Order>>();
-            _mockJwtService = new Mock<IJwtService>();
-            _orderController = new OrderController(_mockRepository.Object, _mockJwtService.Object);
+            _orderController = new OrderController(_mockRepository.Object);
         }
 
         [Test]
@@ -171,8 +163,7 @@ namespace WebAPITest
                     new OrderDetailDto { Quantity = 1, Product = new Product { Id = "1" } }
                 }
             };
-            _mockJwtService.Setup(jwt => jwt.GetEmailFromToken(It.IsAny<ClaimsPrincipal>())).Returns(orderDto.CustomerEmail);
-            _mockJwtService.Setup(jwt => jwt.GetRoleFromToken(It.IsAny<ClaimsPrincipal>())).Returns(Roles.Customer.ToString());
+            
             _mockRepository.Setup(repo => repo.Create(It.IsAny<Order>())).ReturnsAsync(true);
 
             // Act

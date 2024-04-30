@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DesktopApp"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         Title="WelcomeWindow" Height="700" Width="450">
-    <Grid>
-        <Frame x:Name="Index_frame"> </Frame>
-    </Grid>
+    
+    <Frame x:Name="Index_frame"></Frame>
+    
 </Window>

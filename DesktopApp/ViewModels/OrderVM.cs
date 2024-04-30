@@ -1,5 +1,4 @@
-﻿using DesktopApp.Models;
-using DesktopApp.Models.JsonModels;
+﻿using DesktopApp.Models.JsonModels;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -38,9 +37,10 @@ namespace DesktopApp.ViewModels
 
         private async void LoadOrders()
         {
-            string apiURL = "https://localhost:7257/api/order/"+((App)Application.Current).UserEmail;
+            string apiURL = "https://localhost:7257/api/";
+            string endPoint= "order/"+((App)Application.Current).UserEmail;
 
-            var response = await ApiHelper.SendRequest(apiURL, HttpMethod.Get, "");
+            var response = await ApiHelper.SendRequest(apiURL, HttpMethod.Get, endPoint);
 
             try
             {
@@ -51,13 +51,13 @@ namespace DesktopApp.ViewModels
                 }
                 else
                 {
-                    MessageBox.Show("Order History is empty!");
+                    MessageBox.Show("Order History is empty!", "Error");
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                MessageBox.Show(response);
+                MessageBox.Show(response, "Error");
             }                    
 
         }       
